@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark text-light font-sans;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #01BAEF;
+    color: #0D0D0D;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #01BAEF;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-sm font-medium text-muted transition-colors duration-200 hover:text-light relative;
+  }
+
+  .nav-link.active {
+    @apply text-accent;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-dark font-bold px-6 py-3 rounded-none text-sm tracking-wider uppercase transition-all duration-300 hover:bg-light hover:scale-105 inline-flex items-center gap-2;
+  }
+
+  .btn-outline {
+    @apply border border-accent text-accent font-bold px-6 py-3 text-sm tracking-wider uppercase transition-all duration-300 hover:bg-accent hover:text-dark inline-flex items-center gap-2;
+  }
+
+  .section-tag {
+    @apply text-accent font-mono text-xs tracking-[0.3em] uppercase mb-4 flex items-center gap-2;
+  }
+
+  .section-tag::before {
+    content: '';
+    @apply block w-8 h-px bg-accent;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #01BAEF, #0190C0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glitch-text {
+    position: relative;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-text::before {
+    animation: glitch-1 3s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    color: #01BAEF;
+    opacity: 0.8;
+  }
+
+  .glitch-text::after {
+    animation: glitch-2 3s infinite;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    color: #ff0050;
+    opacity: 0.8;
+  }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(-3px, 2px); }
+  20% { transform: translate(3px, -2px); }
+  30% { transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(3px, -2px); }
+  20% { transform: translate(-3px, 2px); }
+  30% { transform: translate(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+.noise-bg {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.skill-bar-fill {
+  animation: fillBar 1.5s ease forwards;
+}
+
+@keyframes fillBar {
+  from { width: 0%; }
+  to { width: var(--target-width); }
+}
+
+.cursor-follower {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: #01BAEF;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
