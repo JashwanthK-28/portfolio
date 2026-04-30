@@ -3,7 +3,7 @@
 A modern, responsive, and animated personal portfolio website built to showcase my projects, skills, and experience as a MERN Stack Developer.
 
 ## 🚀 Live Demo
-*(Add your live deployment link here, e.g., https://jashwanth-portfolio.vercel.app)*
+https://portfolio-gules-one-90.vercel.app/
 
 ## 🛠️ Built With
 
@@ -33,42 +33,3 @@ src/
 ├── index.css       # Global styles and Tailwind directives
 └── main.jsx        # Application entry point
 ```
-
-## ⚙️ Getting Started
-
-To get a local copy up and running, follow these simple steps.
-
-### Prerequisites
-
-*   Node.js installed on your local machine (v18+ recommended)
-*   npm or yarn
-
-### Installation
-
-1. Clone the repository
-   ```bash
-   git clone https://github.com/JashwanthK-28/portfolio.git
-   ```
-2. Navigate to the project directory
-   ```bash
-   cd portfolio
-   ```
-3. Install dependencies
-   ```bash
-   npm install
-   ```
-4. Start the development server
-   ```bash
-   npm run dev
-   ```
-5. Open your browser and visit `http://localhost:5173`
-
-## 👨‍💻 About Me
-
-Hi! I'm **Jashwanth Kumar B**, a passionate MERN Stack Developer currently pursuing my B.Tech in Computer Science and Engineering. I love creating digital experiences that are not just functional, but visually stunning and highly engaging. 
-
-## 📫 Contact
-
-*   **Email:** [jashwanthkumarbolla@gmail.com](mailto:jashwanthkumarbolla@gmail.com)
-*   **LinkedIn:** [Jashwanth Kumar Bolla](https://www.linkedin.com/in/jashwanth-kumar-bolla-a87839317/)
-*   **GitHub:** [@JashwanthK-28](https://github.com/JashwanthK-28)
