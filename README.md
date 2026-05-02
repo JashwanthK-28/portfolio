@@ -3,7 +3,7 @@
 A modern, responsive, and animated personal portfolio website built to showcase my projects, skills, and experience as a MERN Stack Developer.
 
 ## 🚀 Live Demo
-https://portfolio-gules-one-90.vercel.app/
+https://portfolio-bjk.vercel.app/
 
 ## 🛠️ Built With
 
