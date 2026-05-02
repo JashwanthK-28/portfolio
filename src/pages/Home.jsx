@@ -6,6 +6,7 @@ import { FiGithub, FiLinkedin, FiArrowRight } from 'react-icons/fi'
 import MarqueeBanner from '../components/MarqueeBanner'
 import Footer from '../components/Footer'
 import DotGrid from '../components/DotGrid'
+import TiltCard from '../components/TiltCard'
 
 const techStack = ['React', 'JavaScript', 'Node.js', 'Tailwind CSS', 'MongoDB', 'Express', 'Gemini']
 
@@ -105,8 +106,8 @@ export default function Home() {
           </div>
 
           {/* Right - Profile Visual */}
-          <div className="flex justify-center lg:justify-end relative">
-            <div className="relative w-80 h-80 md:w-96 md:h-96">
+          <div className="flex justify-center lg:justify-end relative" style={{ perspective: 1000 }}>
+            <TiltCard className="w-80 h-80 md:w-96 md:h-96">
               {/* Accent border frame */}
               <div className="absolute inset-0 border-2 border-accent/30" style={{ transform: 'translate(12px, 12px)' }} />
               {/* Profile image */}
@@ -123,10 +124,10 @@ export default function Home() {
                 <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-accent" />
               </div>
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -left-4 bg-accent text-dark px-4 py-2 font-mono text-xs font-bold">
+              <div className="absolute -bottom-4 -left-4 bg-accent text-dark px-4 py-2 font-mono text-xs font-bold" style={{ transform: 'translateZ(20px)' }}>
                 Available for Work ✓
               </div>
-            </div>
+            </TiltCard>
           </div>
         </div>
 

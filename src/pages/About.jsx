@@ -9,6 +9,7 @@ import {
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
 import MarqueeBanner from '../components/MarqueeBanner'
+import TiltCard from '../components/TiltCard'
 
 const services = [
   {
@@ -85,15 +86,15 @@ export default function About() {
       <section className="py-16 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left - Profile */}
-          <div className="relative">
-            <div className="relative w-full max-w-md">
+          <div className="relative" style={{ perspective: 1000 }}>
+            <TiltCard className="w-full max-w-md">
               <div className="absolute inset-0 border-2 border-accent/30" style={{ transform: 'translate(16px, 16px)' }} />
               <div className="relative bg-card border border-border p-8 flex flex-col items-center gap-6">
                 {/* Avatar */}
-                <div className="w-32 h-32 rounded-full bg-accent/20 border-2 border-accent flex items-center justify-center">
+                <div className="w-32 h-32 rounded-full bg-accent/20 border-2 border-accent flex items-center justify-center" style={{ transform: 'translateZ(30px)' }}>
                   <span className="font-display text-6xl text-accent">J</span>
                 </div>
-                <div className="text-center">
+                <div className="text-center" style={{ transform: 'translateZ(20px)' }}>
                   <h2 className="text-3xl font-display tracking-wider">JASHWANTH KUMAR B</h2>
                   <p className="text-accent text-sm font-mono mt-1">MERN Stack Developer</p>
                 </div>
@@ -103,7 +104,7 @@ export default function About() {
                 <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-accent" />
                 <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-accent" />
               </div>
-            </div>
+            </TiltCard>
           </div>
 
           {/* Right - Bio */}
