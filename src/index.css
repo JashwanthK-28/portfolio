@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -21,8 +21,8 @@
   }
 
   ::selection {
-    background: #01BAEF;
-    color: #0D0D0D;
+    background: #01baef;
+    color: #0d0d0d;
   }
 
   ::-webkit-scrollbar {
@@ -32,7 +32,7 @@
     background: #111;
   }
   ::-webkit-scrollbar-thumb {
-    background: #01BAEF;
+    background: #01baef;
     border-radius: 4px;
   }
 }
@@ -59,7 +59,7 @@
   }
 
   .section-tag::before {
-    content: '';
+    content: "";
     @apply block w-8 h-px bg-accent;
   }
 
@@ -68,7 +68,7 @@
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #01BAEF, #0190C0);
+    background: linear-gradient(135deg, #01baef, #0190c0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -91,7 +91,7 @@
   .glitch-text::before {
     animation: glitch-1 3s infinite;
     clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-    color: #01BAEF;
+    color: #01baef;
     opacity: 0.8;
   }
 
@@ -104,22 +104,45 @@
 }
 
 @keyframes glitch-1 {
-  0%, 100% { transform: translate(0); }
-  10% { transform: translate(-3px, 2px); }
-  20% { transform: translate(3px, -2px); }
-  30% { transform: translate(0); }
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  10% {
+    transform: translate(-3px, 2px);
+  }
+  20% {
+    transform: translate(3px, -2px);
+  }
+  30% {
+    transform: translate(0);
+  }
 }
 
 @keyframes glitch-2 {
-  0%, 100% { transform: translate(0); }
-  10% { transform: translate(3px, -2px); }
-  20% { transform: translate(-3px, 2px); }
-  30% { transform: translate(0); }
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  10% {
+    transform: translate(3px, -2px);
+  }
+  20% {
+    transform: translate(-3px, 2px);
+  }
+  30% {
+    transform: translate(0);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 .float-animation {
@@ -142,8 +165,12 @@
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .skill-bar-fill {
@@ -151,15 +178,19 @@
 }
 
 @keyframes fillBar {
-  from { width: 0%; }
-  to { width: var(--target-width); }
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width);
+  }
 }
 
 .cursor-follower {
   position: fixed;
   width: 12px;
   height: 12px;
-  background: #01BAEF;
+  background: #01baef;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
