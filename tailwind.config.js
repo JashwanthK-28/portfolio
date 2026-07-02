@@ -14,8 +14,10 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
-        display: ["Bebas Neue", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        display: ["Odibee Sans", "sans-serif"],
+        mono: ["Space Mono", "monospace"],
+        nav: ["SN Pro", "sans-serif"],
+        logo: ["Comfortaa", "sans-serif"],
       },
       animation: {
         marquee: "marquee 20s linear infinite",

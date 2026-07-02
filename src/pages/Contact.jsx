@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FiMail, FiPhone, FiMapPin, FiSend, FiGithub, FiLinkedin} from 'react-icons/fi'
-import Footer from '../components/Footer'
+
 
 const socials = [
   { icon: <FiGithub size={20} />, label: 'GitHub', href: 'https://github.com/JashwanthK-28/', username: '@JashwanthK-28' },
@@ -229,7 +229,6 @@ export default function Contact() {
         />
       </section>
 
-      <Footer />
     </div>
   )
 }

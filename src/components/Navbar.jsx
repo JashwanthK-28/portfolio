@@ -1,116 +1,125 @@
-import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { HiMenu, HiX } from 'react-icons/hi'
-
-const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Contact', path: '/contact' },
-]
+import { useState, useEffect } from "react";
+import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const location = useLocation()
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("#home");
+
+  const navLinks = [
+    { name: "Home", path: "#home" },
+    { name: "About", path: "#about" },
+    { name: "Projects", path: "#projects" },
+    { name: "Contact", path: "#contact" },
+  ];
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  useEffect(() => {
-    setIsOpen(false)
-  }, [location])
+    const handleScroll = () => {
+      const sections = navLinks.map(link => link.path.substring(1));
+      let current = "";
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element && window.scrollY >= (element.offsetTop - 200)) {
+          current = "#" + section;
+        }
+      }
+      if (current) setActiveSection(current);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-dark/95 backdrop-blur-md border-b border-border py-3'
-          : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+      <nav className="flex items-center border w-full max-w-3xl max-md:justify-between border-slate-700 bg-dark/80 backdrop-blur-lg px-4 py-3 rounded-full text-white text-sm shadow-xl">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-accent flex items-center justify-center">
-            <span className="font-display text-dark text-lg leading-none">J</span>
+        <a href="#home" className="flex-shrink-0 flex items-center gap-2 group ml-2">
+          <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center group-hover:bg-white transition-colors duration-300 shadow-[0_0_15px_rgba(1,186,239,0.4)]">
+            <span className="font-logo font-bold text-dark text-lg leading-none pt-1">
+              J
+            </span>
           </div>
-          <span className="font-display text-xl tracking-widest text-light group-hover:text-accent transition-colors">
-            JASHWANTH KUMAR BOLLA
-          </span>
-        </Link>
+        </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-1 mx-auto">
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`nav-link text-sm font-medium tracking-wider uppercase ${
-                location.pathname === link.path ? 'text-accent' : 'text-muted hover:text-light'
+            <a 
+              key={link.name} 
+              href={link.path} 
+              className={`px-4 py-1.5 border rounded-full font-nav uppercase tracking-widest text-[11px] transition-all duration-300 ${
+                activeSection === link.path 
+                  ? 'bg-white/10 border-white/20 text-accent' 
+                  : 'border-transparent hover:border-white/20 text-light hover:text-accent'
               }`}
             >
               {link.name}
-              {location.pathname === link.path && (
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent" />
-              )}
-            </Link>
+            </a>
           ))}
         </div>
 
-        {/* CTA + Hamburger */}
-        <div className="flex items-center gap-4">
+        {/* Desktop Buttons */}
+        <div className="hidden md:flex items-center gap-3 mr-2">
           <a
-            href="https://drive.google.com/uc?export=download&id=1idC8BdK_HcUFVfdCfqSsS1ZFiVcZqxz6" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="hidden md:flex btn-primary text-xs"
+            href="https://drive.google.com/uc?export=download&id=1idC8BdK_HcUFVfdCfqSsS1ZFiVcZqxz6"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-accent px-3 py-2 text-xs font-medium transition-colors font-nav tracking-wide"
           >
             Resume
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
           </a>
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-light hover:text-accent transition-colors"
-            id="mobile-menu-btn"
+          <a
+            href="#contact"
+            className="bg-white hover:shadow-[0px_0px_20px_5px] shadow-[0px_0px_15px_3px] hover:shadow-white/40 shadow-white/30 text-black px-5 py-2 rounded-full text-xs font-bold hover:bg-slate-100 transition duration-300 font-nav tracking-wide"
           >
-            {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-          </button>
+            Hire Me
+          </a>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="bg-darker border-t border-border px-6 py-4 flex flex-col gap-4">
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-gray-400 hover:text-white transition-colors mr-2"
+        >
+          {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+        </button>
+
+        {/* Mobile Menu */}
+        <div
+          className={`absolute top-20 left-0 bg-darker w-full flex-col items-center gap-4 py-8 rounded-3xl border border-slate-800 transition-all duration-300 shadow-2xl ${
+            isOpen ? "flex opacity-100" : "hidden opacity-0 pointer-events-none"
+          }`}
+        >
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
-              to={link.path}
-              className={`text-sm uppercase tracking-wider font-medium py-2 border-b border-border/40 ${
-                location.pathname === link.path ? 'text-accent' : 'text-muted'
+              href={link.path}
+              onClick={() => setIsOpen(false)}
+              className={`font-nav text-lg uppercase tracking-widest px-6 py-2 rounded-full transition-colors ${
+                activeSection === link.path ? 'bg-white/10 text-accent' : 'hover:text-accent'
               }`}
             >
               {link.name}
-            </Link>
+            </a>
           ))}
-          <a href="https://drive.google.com/uc?export=download&id=1idC8BdK_HcUFVfdCfqSsS1ZFiVcZqxz6" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="btn-primary text-xs w-fit mt-2">
+          <div className="w-full h-px bg-slate-800 my-2 max-w-[200px]" />
+          <a
+            href="https://drive.google.com/uc?export=download&id=1idC8BdK_HcUFVfdCfqSsS1ZFiVcZqxz6"
+            target="_blank"
+            rel="noreferrer"
+            className="border border-slate-600 hover:bg-slate-800 px-8 py-3 rounded-full text-sm font-medium transition font-nav tracking-wide"
+          >
             Download Resume
           </a>
+          <a
+            href="#contact"
+            onClick={() => setIsOpen(false)}
+            className="bg-white hover:shadow-[0px_0px_30px_14px] shadow-[0px_0px_30px_7px] hover:shadow-white/50 shadow-white/50 text-black px-8 py-3 rounded-full text-sm font-bold hover:bg-slate-100 transition duration-300 font-nav tracking-wide"
+          >
+            Hire Me
+          </a>
         </div>
-      </div>
-    </nav>
-  )
+      </nav>
+    </div>
+  );
 }

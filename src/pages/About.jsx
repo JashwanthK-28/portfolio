@@ -6,8 +6,6 @@ import {
   SiMysql,
   SiPostman
 } from 'react-icons/si'
-import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
 import MarqueeBanner from '../components/MarqueeBanner'
 import TiltCard from '../components/TiltCard'
 
@@ -133,9 +131,9 @@ export default function About() {
               <a href="https://drive.google.com/uc?export=download&id=1idC8BdK_HcUFVfdCfqSsS1ZFiVcZqxz6" target="_blank" rel="noreferrer" className="btn-primary">
                 Download Resume
               </a>
-              <Link to="/contact" className="btn-outline group">
+              <a href="#contact" className="btn-outline group">
                 Hire Me <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -230,7 +228,6 @@ export default function About() {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

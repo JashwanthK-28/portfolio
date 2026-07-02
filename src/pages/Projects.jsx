@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FiGithub, FiFilter } from "react-icons/fi";
-import Footer from "../components/Footer";
+
 
 const allProjects = [
   {
@@ -220,7 +220,6 @@ export default function Projects() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

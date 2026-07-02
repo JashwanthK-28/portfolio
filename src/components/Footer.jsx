@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { FiGithub, FiLinkedin} from 'react-icons/fi'
 
 const socials = [
@@ -13,12 +12,12 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo / Brand */}
           <div className="flex flex-col items-center md:items-start gap-2">
-            <Link to="/" className="flex items-center gap-2">
+            <a href="#home" className="flex items-center gap-2">
               <div className="w-8 h-8 bg-accent flex items-center justify-center">
                 <span className="font-display text-dark text-lg">J</span>
               </div>
               <span className="font-display text-xl tracking-widest">JASHWANTH KUMAR BOLLA</span>
-            </Link>
+            </a>
             <p className="text-muted text-sm text-center md:text-left">
               Designing the extraordinary, <br />one pixel at a time.
             </p>
