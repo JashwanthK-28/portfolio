@@ -88,7 +88,7 @@ export default function Projects() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 text-xs uppercase tracking-widest font-bold transition-all duration-300 ${
+              className={`px-5 py-2 rounded-full text-xs uppercase tracking-widest font-bold transition-all duration-300 ${
                 activeCategory === cat
                   ? "bg-accent text-dark"
                   : "border border-border text-muted hover:border-accent/50 hover:text-light"
@@ -109,7 +109,7 @@ export default function Projects() {
           {filtered.map((project) => (
             <div
               key={project.id}
-              className="bg-card border border-border group card-hover overflow-hidden cursor-pointer"
+              className="bg-card border border-border rounded-2xl group card-hover overflow-hidden cursor-pointer"
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
@@ -133,7 +133,7 @@ export default function Projects() {
                 {/* Category badge */}
                 <div className="absolute top-4 left-4">
                   <span
-                    className="text-xs font-mono font-bold px-2 py-1 border"
+                    className="text-xs font-mono font-bold px-3 py-1 rounded-full border"
                     style={{
                       color: project.accent,
                       borderColor: `${project.accent}60`,
@@ -146,7 +146,7 @@ export default function Projects() {
                 {/* Featured badge */}
                 {project.featured && (
                   <div className="absolute top-4 right-4">
-                    <span className="text-xs font-mono font-bold px-2 py-1 bg-accent text-dark">
+                    <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-accent text-dark">
                       Featured
                     </span>
                   </div>
@@ -162,7 +162,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 border border-light/30 text-light px-4 py-2 text-xs hover:bg-light hover:text-dark transition-all"
+                    className="flex items-center gap-2 border border-light/30 rounded-full text-light px-5 py-2 text-xs hover:bg-light hover:text-dark transition-all"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <FiGithub size={14} /> Code
@@ -188,7 +188,7 @@ export default function Projects() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="text-xs text-muted border border-border px-2 py-0.5 font-mono hover:border-accent/40 transition-colors"
+                      className="text-xs text-muted border border-border rounded-full px-3 py-1 font-mono hover:border-accent/40 transition-colors"
                     >
                       {t}
                     </span>

@@ -65,7 +65,7 @@ export default function Contact() {
             <div className="flex flex-col gap-4">
               {contactInfo.map((info) => (
                 <div key={info.label} className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 bg-card border border-border flex items-center justify-center text-accent group-hover:border-accent transition-colors">
+                  <div className="w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-accent group-hover:border-accent transition-colors">
                     {info.icon}
                   </div>
                   <div>
@@ -92,7 +92,7 @@ export default function Contact() {
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-3 border border-border p-3 group hover:border-accent/50 transition-all duration-300 card-hover"
+                    className="flex items-center gap-3 border border-border rounded-2xl p-3 group hover:border-accent/50 transition-all duration-300 card-hover"
                   >
                     <div className="text-muted group-hover:text-accent transition-colors">
                       {s.icon}
@@ -107,7 +107,7 @@ export default function Contact() {
             </div>
 
             {/* Availability banner */}
-            <div className="bg-accent/10 border border-accent/30 p-4 flex items-center gap-3">
+            <div className="bg-accent/10 border border-accent/30 rounded-2xl p-4 flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               <p className="text-accent text-sm font-medium">
                 Currently available for freelance projects & full-time roles
@@ -116,7 +116,7 @@ export default function Contact() {
           </div>
 
           {/* Right - Form */}
-          <div className="bg-card border border-border p-8">
+          <div className="bg-card border border-border rounded-3xl p-8">
             <h3 className="text-2xl font-display tracking-wider mb-8">SEND A MESSAGE</h3>
 
             {status === 'success' && (
@@ -136,7 +136,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="John Doe"
-                    className="bg-darker border border-border px-4 py-3 text-light text-sm outline-none focus:border-accent transition-colors placeholder:text-muted/50"
+                    className="bg-darker border border-border rounded-xl px-4 py-3 text-light text-sm outline-none focus:border-accent transition-colors placeholder:text-muted/50"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
@@ -148,7 +148,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="john@example.com"
-                    className="bg-darker border border-border px-4 py-3 text-light text-sm outline-none focus:border-accent transition-colors placeholder:text-muted/50"
+                    className="bg-darker border border-border rounded-xl px-4 py-3 text-light text-sm outline-none focus:border-accent transition-colors placeholder:text-muted/50"
                   />
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Project Collaboration"
-                  className="bg-darker border border-border px-4 py-3 text-light text-sm outline-none focus:border-accent transition-colors placeholder:text-muted/50"
+                  className="bg-darker border border-border rounded-xl px-4 py-3 text-light text-sm outline-none focus:border-accent transition-colors placeholder:text-muted/50"
                 />
               </div>
 
@@ -175,7 +175,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell me about your project..."
-                  className="bg-darker border border-border px-4 py-3 text-light text-sm outline-none focus:border-accent transition-colors resize-none placeholder:text-muted/50"
+                  className="bg-darker border border-border rounded-xl px-4 py-3 text-light text-sm outline-none focus:border-accent transition-colors resize-none placeholder:text-muted/50"
                 />
               </div>
 

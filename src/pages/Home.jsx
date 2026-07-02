@@ -107,34 +107,30 @@ export default function Home() {
 
           {/* Right - Profile Visual */}
           <div
-            className="flex justify-center lg:justify-end relative"
+            className="flex justify-center lg:justify-end relative w-full z-20"
             style={{ perspective: 1000 }}
           >
-            <TiltCard className="w-80 h-80 md:w-96 md:h-96">
+            <TiltCard className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
               {/* Accent border frame */}
               <div
                 className="absolute inset-0 border-2 border-accent/30"
                 style={{ transform: "translate(12px, 12px)" }}
               />
               {/* Profile image */}
-              <div className="relative w-full h-full bg-card border border-border overflow-hidden">
+              <div className="relative w-full h-full bg-card border border-border overflow-hidden group">
                 <img
                   src={profileImg}
                   alt="Jashwanth Kumar"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
                 />
-                {/* Decorative corners */}
-                <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-accent" />
-                <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-accent" />
-                <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-accent" />
-                <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-accent" />
-              </div>
-              {/* Floating badge */}
-              <div
-                className="absolute -bottom-4 -left-4 bg-accent text-dark px-4 py-2 font-mono text-xs font-bold"
-                style={{ transform: "translateZ(20px)" }}
-              >
-                Available for Work ✓
+
+                {/* Grain Overlay on Hover */}
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-500 z-10"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.5'/%3E%3C/svg%3E")`,
+                  }}
+                />
               </div>
             </TiltCard>
           </div>
@@ -154,7 +150,7 @@ export default function Home() {
           </div>
           <a
             href="#contact"
-            className="bg-dark text-accent border-2 border-dark font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-transparent hover:text-dark transition-all duration-300 flex items-center gap-2 whitespace-nowrap"
+            className="bg-dark text-accent border-2 border-dark font-bold px-8 py-4 rounded-full text-sm tracking-widest uppercase hover:bg-transparent hover:text-dark transition-all duration-300 flex items-center gap-2 whitespace-nowrap"
           >
             Get In Touch <FiArrowRight />
           </a>

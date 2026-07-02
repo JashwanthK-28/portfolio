@@ -16,8 +16,8 @@ export default {
         sans: ["Inter", "sans-serif"],
         display: ["Odibee Sans", "sans-serif"],
         mono: ["Space Mono", "monospace"],
-        nav: ["SN Pro", "sans-serif"],
-        logo: ["Comfortaa", "sans-serif"],
+        nav: ["Inter", "sans-serif"],
+        logo: ["Inter", "sans-serif"],
       },
       animation: {
         marquee: "marquee 20s linear infinite",

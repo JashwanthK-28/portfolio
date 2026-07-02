@@ -153,7 +153,7 @@ export default function About() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="bg-card border border-border p-8 group hover:border-accent/50 transition-all duration-300 card-hover"
+              className="bg-card border border-border rounded-2xl p-8 group hover:border-accent/50 transition-all duration-300 card-hover"
             >
               <div className="text-accent mb-4 group-hover:scale-110 transition-transform inline-block">
                 {service.icon}
@@ -215,7 +215,7 @@ export default function About() {
           {techIcons.map((tech) => (
             <div
               key={tech.name}
-              className="bg-card border border-border p-4 flex flex-col items-center gap-3 group hover:border-accent/50 card-hover transition-all duration-300"
+              className="bg-card border border-border rounded-2xl p-4 flex flex-col items-center gap-3 group hover:border-accent/50 card-hover transition-all duration-300"
             >
               <span className="text-3xl group-hover:scale-125 transition-transform duration-300">
                 {tech.icon}
