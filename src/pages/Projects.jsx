@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FiGithub, FiFilter } from "react-icons/fi";
 
-
 const allProjects = [
   {
     id: 1,
@@ -109,117 +108,117 @@ export default function Projects() {
           {filtered.map((project) => (
             <div
               key={project.id}
-              className="bg-card border border-border rounded-2xl group card-hover overflow-hidden cursor-pointer"
+              className="relative group [perspective:1000px] h-[400px] cursor-pointer"
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              {/* Thumbnail */}
-              <div className="relative h-52 overflow-hidden border-b border-border flex items-center justify-center bg-darker">
-                <div
-                  className="absolute inset-0 transition-opacity duration-500"
-                  style={{
-                    opacity: hoveredId === project.id ? 0.15 : 0.05,
-                    background: `radial-gradient(circle at 50% 50%, ${project.accent}, transparent)`,
-                  }}
-                />
-                {/* Project number */}
-                <span
-                  className="font-display text-8xl opacity-10 group-hover:opacity-20 transition-all duration-500 select-none"
-                  style={{ color: project.accent }}
-                >
-                  {String(project.id).padStart(2, "0")}
-                </span>
-
-                {/* Category badge */}
-                <div className="absolute top-4 left-4">
-                  <span
-                    className="text-xs font-mono font-bold px-3 py-1 rounded-full border"
-                    style={{
-                      color: project.accent,
-                      borderColor: `${project.accent}60`,
-                    }}
-                  >
-                    {project.category}
-                  </span>
-                </div>
-
-                {/* Featured badge */}
-                {project.featured && (
-                  <div className="absolute top-4 right-4">
-                    <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-accent text-dark">
-                      Featured
-                    </span>
-                  </div>
-                )}
-
-                {/* Hover overlay with links */}
-                <div
-                  className={`absolute inset-0 flex items-center justify-center gap-6 transition-opacity duration-300 bg-dark/60 ${
-                    hoveredId === project.id ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 border border-light/30 rounded-full text-light px-5 py-2 text-xs hover:bg-light hover:text-dark transition-all"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <FiGithub size={14} /> Code
-                  </a>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3
-                  className="text-xl font-display tracking-wider mb-3 transition-colors duration-300"
-                  style={{
-                    color:
-                      hoveredId === project.id ? project.accent : "#F5F5F5",
-                  }}
-                >
-                  {project.title}
-                </h3>
-                <p className="text-muted text-sm leading-relaxed mb-4 line-clamp-2">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
+              <div className="absolute inset-0 w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                {/* FRONT FACE */}
+                <div className="absolute inset-0 w-full h-full bg-card border border-border rounded-2xl flex flex-col overflow-hidden [backface-visibility:hidden]">
+                  {/* Thumbnail */}
+                  <div className="relative h-52 overflow-hidden border-b border-border flex items-center justify-center bg-darker shrink-0">
+                    <div
+                      className="absolute inset-0 transition-opacity duration-500"
+                      style={{
+                        opacity: hoveredId === project.id ? 0.15 : 0.05,
+                        background: `radial-gradient(circle at 50% 50%, ${project.accent}, transparent)`,
+                      }}
+                    />
+                    {/* Project number */}
                     <span
-                      key={t}
-                      className="text-xs text-muted border border-border rounded-full px-3 py-1 font-mono hover:border-accent/40 transition-colors"
+                      className="font-display text-8xl opacity-10 group-hover:opacity-20 transition-all duration-500 select-none"
+                      style={{ color: project.accent }}
                     >
-                      {t}
+                      {String(project.id).padStart(2, "0")}
                     </span>
-                  ))}
+
+                    {/* Category badge */}
+                    <div className="absolute top-4 left-4">
+                      <span
+                        className="text-xs font-mono font-bold px-3 py-1 rounded-full border"
+                        style={{
+                          color: project.accent,
+                          borderColor: `${project.accent}60`,
+                        }}
+                      >
+                        {project.category}
+                      </span>
+                    </div>
+
+                    {/* Featured badge */}
+                    {project.featured && (
+                      <div className="absolute top-4 right-4">
+                        <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-accent text-dark">
+                          Featured
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Front Content */}
+                  <div className="p-6 flex flex-col flex-grow justify-center">
+                    <h3
+                      className="text-xl font-display tracking-wider mb-4 transition-colors duration-300"
+                      style={{
+                        color:
+                          hoveredId === project.id ? project.accent : "#F5F5F5",
+                      }}
+                    >
+                      {project.title}
+                    </h3>
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                      {project.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="text-xs text-muted border border-border rounded-full px-3 py-1 font-mono transition-colors"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* BACK FACE */}
+                <div className="absolute inset-0 w-full h-full bg-darker border border-border rounded-2xl p-8 flex flex-col items-center justify-center text-center [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <h3
+                    className="text-2xl font-display tracking-wider mb-4"
+                    style={{ color: project.accent }}
+                  >
+                    {project.title}
+                  </h3>
+                  <p className="text-muted text-sm leading-relaxed mb-8">
+                    {project.description}
+                  </p>
+
+                  <div className="flex gap-4">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2 border border-light/30 rounded-full text-light px-5 py-2.5 text-sm hover:bg-light hover:text-dark transition-all"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <FiGithub size={16} /> Code
+                    </a>
+                    {project.live && project.live !== "#" && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-2 bg-accent text-dark rounded-full px-5 py-2.5 text-sm hover:bg-light transition-all"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </section>
-
-      {/* Bottom CTA */}
-      <section className="py-20 bg-darker border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-muted text-sm mb-4 uppercase tracking-widest font-mono">
-            More on GitHub
-          </p>
-          <h2 className="text-4xl font-display tracking-wider mb-8">
-            SEE ALL MY WORK
-          </h2>
-          <a
-            href="https://github.com/JashwanthK-28/"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-primary"
-          >
-            <FiGithub /> Visit GitHub Profile
-          </a>
-        </div>
-      </section>
-
     </div>
   );
 }

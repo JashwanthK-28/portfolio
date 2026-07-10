@@ -4,46 +4,6 @@ import { FiGithub, FiLinkedin, FiArrowRight } from "react-icons/fi";
 import TiltCard from "../components/TiltCard";
 import SideRays from "../components/ui/SideRays";
 
-function TypeWriter({ words }) {
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const [blink, setBlink] = useState(true);
-  const [reverse, setReverse] = useState(false);
-
-  useEffect(() => {
-    if (subIndex === words[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 1500);
-      return;
-    }
-    if (subIndex === 0 && reverse) {
-      setReverse(false);
-      setIndex((prev) => (prev + 1) % words.length);
-      return;
-    }
-    const timeout = setTimeout(
-      () => {
-        setSubIndex((prev) => prev + (reverse ? -1 : 1));
-      },
-      reverse ? 50 : 100,
-    );
-    return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse, words]);
-
-  useEffect(() => {
-    const interval = setInterval(() => setBlink((prev) => !prev), 500);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <span>
-      {`${words[index].substring(0, subIndex)}`}
-      <span className={`text-accent ${blink ? "opacity-100" : "opacity-0"}`}>
-        |
-      </span>
-    </span>
-  );
-}
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-dark">
@@ -78,16 +38,6 @@ export default function Home() {
               <br />
               I'M <span className="text-accent">JASHWANTH KUMAR</span>
             </h1>
-
-            <p className="text-xl text-muted font-medium">
-              <TypeWriter
-                words={[
-                  "MERN Stack Developer",
-                  "Creative Coder",
-                  "Problem Solver",
-                ]}
-              />
-            </p>
 
             <p className="text-muted text-base leading-relaxed max-w-md">
               I craft beautiful, high-performance web experiences that blend
