@@ -3,6 +3,7 @@ import profileImg from "../assets/profile.jpeg";
 import { FiGithub, FiLinkedin, FiArrowRight } from "react-icons/fi";
 import TiltCard from "../components/TiltCard";
 import SideRays from "../components/ui/SideRays";
+import DecryptedText from "../components/DecryptedText";
 
 export default function Home() {
   return (
@@ -34,9 +35,28 @@ export default function Home() {
           {/* Left Content */}
           <div className="flex flex-col gap-6">
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-display tracking-wider leading-none">
-              HEY THERE,
+              <DecryptedText
+                text="HEY THERE,"
+                animateOn="inViewHover"
+                speed={50}
+                maxIterations={10}
+              />
               <br />
-              I'M <span className="text-accent">JASHWANTH KUMAR</span>
+              <DecryptedText
+                text="I'M "
+                animateOn="inViewHover"
+                speed={50}
+                maxIterations={10}
+              />
+              <span className="text-accent">
+                <DecryptedText
+                  text="JASHWANTH KUMAR"
+                  animateOn="inViewHover"
+                  speed={60}
+                  maxIterations={10}
+                  revealDirection="center"
+                />
+              </span>
             </h1>
 
             <p className="text-muted text-base leading-relaxed max-w-md">
