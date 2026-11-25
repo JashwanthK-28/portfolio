@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Odibee+Sans&family=SN+Pro:ital,wght@0,200..900;1,200..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Comfortaa:wght@300..700&family=Inter:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,146 +14,65 @@ html {
     padding: 0;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
-    @apply bg-dark text-light font-sans;
+    @apply bg-paper text-ink font-sans antialiased;
     overflow-x: hidden;
   }
 
   ::selection {
-    background: #01baef;
-    color: #0d0d0d;
+    background: #ffde00;
+    color: #000000;
   }
 
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: #111;
+    background: #f4f0e8;
+    border-left: 3px solid #000000;
   }
   ::-webkit-scrollbar-thumb {
-    background: #01baef;
-    border-radius: 4px;
+    background: #ffde00;
+    border-left: 3px solid #000000;
+    border-top: 3px solid #000000;
+    border-bottom: 3px solid #000000;
   }
 }
 
 @layer components {
-  .nav-link {
-    @apply text-sm font-medium text-muted transition-colors duration-200 hover:text-light relative;
+  .nb-card {
+    @apply bg-white border-[3px] border-black shadow-nb-md transition-all duration-200;
   }
 
-  .nav-link.active {
-    @apply text-accent;
+  .nb-card-hover {
+    @apply hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-nb-lg;
   }
 
   .btn-primary {
-    @apply bg-accent text-dark font-bold px-6 py-3 rounded-full text-sm tracking-wider uppercase transition-all duration-300 hover:bg-light hover:scale-105 inline-flex items-center gap-2;
+    @apply bg-accent text-black font-mono font-bold px-6 py-3 border-[3px] border-black shadow-nb text-sm tracking-wider uppercase transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-nb-md active:translate-x-1 active:translate-y-1 active:shadow-none inline-flex items-center gap-2;
   }
 
   .btn-outline {
-    @apply border border-accent text-accent font-bold px-6 py-3 rounded-full text-sm tracking-wider uppercase transition-all duration-300 hover:bg-accent hover:text-dark inline-flex items-center gap-2;
+    @apply bg-white text-black font-mono font-bold px-6 py-3 border-[3px] border-black shadow-nb text-sm tracking-wider uppercase transition-all duration-150 hover:bg-nb-cyan hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-nb-md active:translate-x-1 active:translate-y-1 active:shadow-none inline-flex items-center gap-2;
   }
 
   .section-tag {
-    @apply text-accent font-mono text-xs tracking-[0.3em] uppercase mb-4 flex items-center gap-2;
+    @apply inline-flex items-center gap-2 bg-nb-lime text-black font-mono font-bold text-xs tracking-[0.2em] uppercase px-3 py-1.5 border-2 border-black shadow-nb-sm mb-4;
   }
 
-  .section-tag::before {
-    content: "";
-    @apply block w-8 h-px bg-accent;
+  .nb-grid-bg {
+    background-color: #fffdf5;
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 
-  .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  .nb-dots-bg {
+    background-color: #f4f0e8;
+    background-image: radial-gradient(#000000 1.2px, transparent 1.2px);
+    background-size: 20px 20px;
   }
-
-  .gradient-text {
-    background: linear-gradient(135deg, #01baef, #0190c0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .glitch-text {
-    position: relative;
-  }
-
-  .glitch-text::before,
-  .glitch-text::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .glitch-text::before {
-    animation: glitch-1 3s infinite;
-    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-    color: #01baef;
-    opacity: 0.8;
-  }
-
-  .glitch-text::after {
-    animation: glitch-2 3s infinite;
-    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-    color: #ff0050;
-    opacity: 0.8;
-  }
-}
-
-@keyframes glitch-1 {
-  0%,
-  100% {
-    transform: translate(0);
-  }
-  10% {
-    transform: translate(-3px, 2px);
-  }
-  20% {
-    transform: translate(3px, -2px);
-  }
-  30% {
-    transform: translate(0);
-  }
-}
-
-@keyframes glitch-2 {
-  0%,
-  100% {
-    transform: translate(0);
-  }
-  10% {
-    transform: translate(3px, -2px);
-  }
-  20% {
-    transform: translate(-3px, 2px);
-  }
-  30% {
-    transform: translate(0);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-.float-animation {
-  animation: float 4s ease-in-out infinite;
-}
-
-.noise-bg {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
 }
 
 .marquee-container {
@@ -164,7 +83,7 @@ html {
 
 .marquee-track {
   display: flex;
-  animation: marquee 25s linear infinite;
+  animation: marquee 22s linear infinite;
 }
 
 @keyframes marquee {
@@ -174,31 +93,6 @@ html {
   100% {
     transform: translateX(-50%);
   }
-}
-
-.skill-bar-fill {
-  animation: fillBar 1.5s ease forwards;
-}
-
-@keyframes fillBar {
-  from {
-    width: 0%;
-  }
-  to {
-    width: var(--target-width);
-  }
-}
-
-.cursor-follower {
-  position: fixed;
-  width: 12px;
-  height: 12px;
-  background: #01baef;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: transform 0.1s ease;
 }
 
 .line-clamp-2 {

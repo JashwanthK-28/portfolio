@@ -1,40 +1,28 @@
-import { useState, useEffect } from "react";
 import profileImg from "../assets/profile.jpeg";
-import { FiGithub, FiLinkedin, FiArrowRight } from "react-icons/fi";
+import { FiArrowRight, FiTerminal } from "react-icons/fi";
 import TiltCard from "../components/TiltCard";
-import SideRays from "../components/ui/SideRays";
 import DecryptedText from "../components/DecryptedText";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen bg-paper">
       {/* HERO */}
-      <section className="min-h-screen relative flex flex-col justify-center overflow-hidden bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-accent/20 via-dark to-dark">
-        {/* Background Elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 z-0">
-            <SideRays
-              speed={2.5}
-              rayColor1="#01BAEF"
-              rayColor2="#96c8ff"
-              intensity={1.5}
-              spread={2}
-              origin="top-right"
-              tilt={0}
-              saturation={1.5}
-              blend={0.75}
-              falloff={1.6}
-              opacity={0.8}
-            />
-          </div>
-          <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-accent/5 blur-3xl" />
-          <div className="absolute bottom-40 left-10 w-48 h-48 rounded-full bg-accent/3 blur-2xl" />
+      <section className="min-h-screen relative flex flex-col justify-center overflow-hidden nb-grid-bg">
+        {/* Geometric Neo-Brutalist Background Accents */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="hidden lg:block absolute top-28 right-12 w-24 h-24 bg-nb-coral border-[3px] border-black shadow-nb rotate-12 opacity-90" />
+          <div className="hidden lg:block absolute bottom-28 left-10 w-16 h-16 bg-nb-cyan border-[3px] border-black shadow-nb -rotate-6" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 pt-32 pb-16 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 pt-32 pb-20 grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
           {/* Left Content */}
-          <div className="flex flex-col gap-6">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-display tracking-wider leading-none">
+          <div className="flex flex-col gap-6 items-start">
+            <div className="inline-flex items-center gap-2 bg-nb-lime text-black font-mono font-bold text-xs uppercase tracking-widest px-3.5 py-1.5 border-[3px] border-black shadow-nb-sm -rotate-1">
+              <span className="w-2.5 h-2.5 bg-black inline-block animate-pulse" />
+              MERN Stack Developer // Open to Work
+            </div>
+
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-display tracking-tight leading-[0.95] text-black uppercase">
               <DecryptedText
                 text="HEY THERE,"
                 animateOn="inViewHover"
@@ -48,7 +36,7 @@ export default function Home() {
                 speed={50}
                 maxIterations={10}
               />
-              <span className="text-accent">
+              <span className="inline-block bg-accent px-3 py-1 mt-2 border-[3px] border-black shadow-nb">
                 <DecryptedText
                   text="JASHWANTH KUMAR"
                   animateOn="inViewHover"
@@ -59,15 +47,17 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-muted text-base leading-relaxed max-w-md">
-              I craft beautiful, high-performance web experiences that blend
-              design excellence with cutting-edge technology. Turning ideas into
-              stunning digital realities.
-            </p>
+            <div className="bg-white border-[3px] border-black shadow-nb p-5 max-w-lg">
+              <p className="text-black font-medium text-base leading-relaxed">
+                I craft bold, high-performance web experiences that blend
+                design excellence with cutting-edge technology. Turning ideas
+                into unforgettable digital products.
+              </p>
+            </div>
 
-            <div className="flex flex-wrap gap-4 mt-2">
+            <div className="flex flex-wrap gap-4 mt-1">
               <a href="#projects" className="btn-primary">
-                View Projects <FiArrowRight />
+                View Projects <FiArrowRight size={18} />
               </a>
               <a href="#contact" className="btn-outline">
                 Hire Me
@@ -80,27 +70,41 @@ export default function Home() {
             className="flex justify-center lg:justify-end relative w-full z-20"
             style={{ perspective: 1000 }}
           >
-            <TiltCard className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              {/* Accent border frame */}
+            <TiltCard className="w-72 sm:w-80 md:w-96">
+              {/* Offset brutalist backing block */}
               <div
-                className="absolute inset-0 border-2 border-accent/30"
-                style={{ transform: "translate(12px, 12px)" }}
+                className="absolute inset-0 bg-nb-cyan border-[3px] border-black"
+                style={{ transform: "translate(14px, 14px)" }}
               />
-              {/* Profile image */}
-              <div className="relative w-full h-full bg-card border border-border overflow-hidden group">
-                <img
-                  src={profileImg}
-                  alt="Jashwanth Kumar"
-                  className="w-full h-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
-                />
 
-                {/* Grain Overlay on Hover */}
-                <div
-                  className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-500 z-10"
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.5'/%3E%3C/svg%3E")`,
-                  }}
-                />
+              {/* Window Frame */}
+              <div className="relative w-full bg-white border-[3px] border-black overflow-hidden group">
+                {/* Window Title Bar */}
+                <div className="flex items-center justify-between px-3 py-2 bg-accent border-b-[3px] border-black">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 bg-nb-coral border-2 border-black inline-block" />
+                    <span className="w-3 h-3 bg-white border-2 border-black inline-block" />
+                    <span className="w-3 h-3 bg-nb-lime border-2 border-black inline-block" />
+                  </div>
+                  <span className="font-mono font-bold text-[11px] uppercase tracking-wider flex items-center gap-1 text-black">
+                    <FiTerminal size={12} /> PROFILE.JPEG
+                  </span>
+                </div>
+
+                {/* Image */}
+                <div className="aspect-square w-full overflow-hidden bg-surface">
+                  <img
+                    src={profileImg}
+                    alt="Jashwanth Kumar"
+                    className="w-full h-full object-cover object-top grayscale-[15%] group-hover:grayscale-0 transition-all duration-300"
+                  />
+                </div>
+
+                {/* Bottom Caption Strip */}
+                <div className="px-4 py-2.5 bg-white border-t-[3px] border-black flex items-center justify-between font-mono text-xs font-bold uppercase">
+                  <span>HYDERABAD, IN</span>
+                  <span className="bg-black text-accent px-2 py-0.5">B.TECH CSE</span>
+                </div>
               </div>
             </TiltCard>
           </div>
@@ -108,21 +112,24 @@ export default function Home() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-24 bg-accent">
+      <section className="py-20 bg-accent border-y-[3px] border-black">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
-            <h2 className="text-4xl md:text-5xl font-display tracking-wider text-dark mb-3">
+            <div className="inline-block bg-white border-2 border-black px-3 py-1 font-mono text-xs font-bold uppercase mb-3 shadow-nb-sm">
+              Ready to ship
+            </div>
+            <h2 className="text-4xl md:text-5xl font-display tracking-tight uppercase text-black mb-2">
               LET'S WORK TOGETHER
             </h2>
-            <p className="text-dark/70 text-sm">
+            <p className="text-black font-medium text-base">
               Got a project in mind? Let's build something extraordinary.
             </p>
           </div>
           <a
             href="#contact"
-            className="bg-dark text-accent border-2 border-dark font-bold px-8 py-4 rounded-full text-sm tracking-widest uppercase hover:bg-transparent hover:text-dark transition-all duration-300 flex items-center gap-2 whitespace-nowrap"
+            className="bg-black text-accent border-[3px] border-black shadow-[6px_6px_0px_0px_#FFFFFF] font-mono font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-white hover:text-black hover:shadow-nb-md active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center gap-2 whitespace-nowrap"
           >
-            Get In Touch <FiArrowRight />
+            Get In Touch <FiArrowRight size={18} />
           </a>
         </div>
       </section>
